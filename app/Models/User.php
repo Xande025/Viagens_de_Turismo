@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'first_access',
+        'password_changed_at',
     ];
 
     /**
@@ -43,6 +45,27 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'first_access' => 'boolean',
+            'password_changed_at' => 'datetime',
         ];
+    }
+
+    /**
+     * Check if this is the user's first access
+     */
+    public function isFirstAccess()
+    {
+        return $this->first_access;
+    }
+
+    /**
+     * Mark password as changed
+     */
+    public function markPasswordChanged()
+    {
+        $this->update([
+            'first_access' => false,
+            'password_changed_at' => now()
+        ]);
     }
 }
