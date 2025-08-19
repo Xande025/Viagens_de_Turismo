@@ -2,63 +2,133 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Driver;
 use Illuminate\Http\Request;
 
 class DriverController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of drivers (RF03)
      */
     public function index()
     {
-        //
+        $drivers = Driver::orderBy('created_at', 'desc')->paginate(10);
+        
+        $breadcrumbs = [
+            ['title' => 'Dashboard', 'url' => route('dashboard')],
+            ['title' => 'Motoristas', 'url' => '']
+        ];
+
+        return view('drivers.index', compact('drivers', 'breadcrumbs'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new driver
      */
     public function create()
     {
-        //
+        $breadcrumbs = [
+            ['title' => 'Dashboard', 'url' => route('dashboard')],
+            ['title' => 'Motoristas', 'url' => route('drivers.index')],
+            ['title' => 'Novo Motorista', 'url' => '']
+        ];
+
+        return view('drivers.create', compact('breadcrumbs'));
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created driver
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'cpf' => 'required|string|size:11|unique:drivers',
+            'cnh' => 'required|string|max:20|unique:drivers',
+            'cnh_category' => 'required|in:A,B,C,D,E',
+            'cnh_expiry' => 'required|date|after:today',
+            'phone' => 'nullable|string|max:20',
+            'email' => 'nullable|email|unique:drivers',
+            'status' => 'required|in:active,inactive'
+        ]);
+
+        // Remove formatação do CPF se houver
+        $validated['cpf'] = preg_replace('/[^0-9]/', '', $validated['cpf']);
+
+        Driver::create($validated);
+
+        return redirect()->route('drivers.index')
+            ->with('success', 'Motorista cadastrado com sucesso!');
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified driver
      */
-    public function show(string $id)
+    public function show(Driver $driver)
     {
-        //
+        $breadcrumbs = [
+            ['title' => 'Dashboard', 'url' => route('dashboard')],
+            ['title' => 'Motoristas', 'url' => route('drivers.index')],
+            ['title' => $driver->name, 'url' => '']
+        ];
+
+        return view('drivers.show', compact('driver', 'breadcrumbs'));
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified driver
      */
-    public function edit(string $id)
+    public function edit(Driver $driver)
     {
-        //
+        $breadcrumbs = [
+            ['title' => 'Dashboard', 'url' => route('dashboard')],
+            ['title' => 'Motoristas', 'url' => route('drivers.index')],
+            ['title' => $driver->name, 'url' => route('drivers.show', $driver)],
+            ['title' => 'Editar', 'url' => '']
+        ];
+
+        return view('drivers.edit', compact('driver', 'breadcrumbs'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified driver
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Driver $driver)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'cpf' => 'required|string|size:11|unique:drivers,cpf,' . $driver->id,
+            'cnh' => 'required|string|max:20|unique:drivers,cnh,' . $driver->id,
+            'cnh_category' => 'required|in:A,B,C,D,E',
+            'cnh_expiry' => 'required|date|after:today',
+            'phone' => 'nullable|string|max:20',
+            'email' => 'nullable|email|unique:drivers,email,' . $driver->id,
+            'status' => 'required|in:active,inactive'
+        ]);
+
+        // Remove formatação do CPF se houver
+        $validated['cpf'] = preg_replace('/[^0-9]/', '', $validated['cpf']);
+
+        $driver->update($validated);
+
+        return redirect()->route('drivers.show', $driver)
+            ->with('success', 'Motorista atualizado com sucesso!');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified driver
      */
-    public function destroy(string $id)
+    public function destroy(Driver $driver)
     {
-        //
+        // Verificar se o motorista tem viagens associadas
+        if ($driver->trips()->count() > 0) {
+            return redirect()->route('drivers.index')
+                ->with('error', 'Não é possível excluir este motorista pois possui viagens associadas.');
+        }
+
+        $driver->delete();
+
+        return redirect()->route('drivers.index')
+            ->with('success', 'Motorista excluído com sucesso!');
     }
 }

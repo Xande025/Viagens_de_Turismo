@@ -5,6 +5,9 @@ use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\TripController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -13,7 +16,16 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
-Auth::routes();
+// Rotas de autenticação (SEM registro público)
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// Rotas de reset de senha (caso necessário)
+Route::get('/password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('/password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+Route::get('/password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('/password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
 
 // Rotas protegidas por autenticação
 Route::middleware(['auth', 'check.first.access'])->group(function () {
@@ -25,6 +37,10 @@ Route::middleware(['auth', 'check.first.access'])->group(function () {
     Route::resource('drivers', DriverController::class);
     Route::resource('trips', TripController::class);
     Route::resource('users', UserController::class);
+    
+    // Rota extra para reset de senha de usuários
+    Route::post('/users/{user}/reset-password', [UserController::class, 'resetPassword'])
+        ->name('users.reset-password');
 });
 
 // Rotas para mudança de senha no primeiro acesso (RF06)
@@ -53,4 +69,7 @@ Route::middleware('auth')->group(function () {
 
         return redirect()->route('home')->with('success', 'Senha alterada com sucesso!');
     })->name('password.update');
+    
+    // Rota adicional para reset de senha de usuário
+    Route::post('/users/{user}/reset-password', [UserController::class, 'resetPassword'])->name('users.reset-password');
 });
