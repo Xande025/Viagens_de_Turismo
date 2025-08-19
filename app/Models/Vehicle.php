@@ -35,8 +35,3 @@ class Vehicle extends Model
         return $this->status === 'available';
     }
 }
-
-class Vehicle extends Model
-{
-    //
-}
