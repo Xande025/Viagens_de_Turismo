@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.admin-simple')
 
 @section('title', 'Novo Usuário Administrador')
 
