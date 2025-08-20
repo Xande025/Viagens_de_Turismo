@@ -21,8 +21,27 @@
                         <td>{{ $trip->arrival_time->format('d/m/Y H:i') }}</td>
                         <td>{{ $trip->vehicle->plate }}</td>
                         <td>
-                            <span class="badge bg-{{ $trip->status === 'completed' ? 'success' : ($trip->status === 'in_progress' ? 'warning' : 'primary') }}">
-                                {{ ucfirst(str_replace('_', ' ', $trip->status)) }}
+                            <span class="badge bg-{{
+                                $trip->status === 'completed' ? 'success' :
+                                ($trip->status === 'in_progress' ? 'warning' :
+                                ($trip->status === 'cancelled' ? 'danger' : 'primary'))
+                            }}">
+                                @switch($trip->status)
+                                    @case('scheduled')
+                                        Agendada
+                                        @break
+                                    @case('in_progress')
+                                        Em andamento
+                                        @break
+                                    @case('completed')
+                                        Concluída
+                                        @break
+                                    @case('cancelled')
+                                        Cancelada
+                                        @break
+                                    @default
+                                        {{ ucfirst($trip->status) }}
+                                @endswitch
                             </span>
                         </td>
                         <td>
