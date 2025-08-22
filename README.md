@@ -23,8 +23,7 @@
 - [⚙️ Configuração](#️-configuração)
 - [💾 Banco de Dados](#-banco-de-dados)
 - [🎨 Interface](#-interface)
-- [📱 Responsividade](#-responsividade)
-- [🔐 Autenticação](#-autenticação)
+-- [🔐 Autenticação](#-autenticação)
 - [📂 Estrutura do Projeto](#-estrutura-do-projeto)
 - [🧪 Testes](#-testes)
 - [📖 Documentação da API](#-documentação-da-api)
@@ -294,34 +293,6 @@ O projeto utiliza um design system consistente baseado em:
 
 ---
 
-## 📱 Responsividade
-
-O sistema é 100% responsivo, adaptando-se a:
-
-- **Desktop** (1200px+)
-- **Tablet** (768px - 1199px)
-- **Mobile** (até 767px)
-
-### Breakpoints Utilizados
-
-```scss
-// Extra small devices
-@media (max-width: 575.98px) { ... }
-
-// Small devices
-@media (min-width: 576px) and (max-width: 767.98px) { ... }
-
-// Medium devices
-@media (min-width: 768px) and (max-width: 991.98px) { ... }
-
-// Large devices
-@media (min-width: 992px) and (max-width: 1199.98px) { ... }
-
-// Extra large devices
-@media (min-width: 1200px) { ... }
-```
-
----
 
 ## 🔐 Autenticação
 
@@ -502,63 +473,6 @@ DB_HOST=seu-servidor-db
 DB_DATABASE=viagens_turismo_prod
 ```
 
----
 
-## 🤝 Contribuição
 
-Contribuições são sempre bem-vindas! Para contribuir:
-
-1. **Fork** o projeto
-2. **Clone** seu fork: `git clone https://github.com/seu-usuario/Viagens_de_Turismo-.git`
-3. **Crie** uma branch: `git checkout -b feature/nova-funcionalidade`
-4. **Faça** suas mudanças
-5. **Commit**: `git commit -m 'Adiciona nova funcionalidade'`
-6. **Push**: `git push origin feature/nova-funcionalidade`
-7. **Abra** um Pull Request
-
-### Padrões de Código
-
-- **PSR-12** para PHP
-- **ESLint** para JavaScript
-- **Comentários** em português
-- **Commits** descritivos
-
----
-
-## 📞 Suporte
-
-Para suporte ou dúvidas:
-
-- **Issues**: [GitHub Issues](https://github.com/Xande025/Viagens_de_Turismo-/issues)
-- **Discussões**: [GitHub Discussions](https://github.com/Xande025/Viagens_de_Turismo-/discussions)
-- **Email**: suporte@coinpel.com.br
-
----
-
-## 👥 Equipe
-
-- **Desenvolvedor Principal**: Xande025
-- **Design**: Equipe COINPEL
-- **QA**: Equipe de Testes
-
----
-
-## 📄 Licença
-
-Este projeto está sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
----
-
-## 🔄 Changelog
-
-### v1.0.0 (2025-08-21)
-- ✅ Sistema de autenticação completo
-- ✅ CRUD de motoristas com formulários dual
-- ✅ CRUD de veículos
-- ✅ CRUD de viagens
-- ✅ Interface responsiva com Bootstrap 5.3
-- ✅ Schema de banco flexível
-- ✅ Sistema de componentes reutilizáveis
-
----
 
