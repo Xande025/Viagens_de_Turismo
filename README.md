@@ -1,61 +1,564 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🚐 COINPEL - Sistema de Gestão de Viagens e Turismo
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<div align="center">
+  <img src="public/images/logo.png" alt="COINPEL Logo" width="200">
+  
+  <p><em>Sistema completo para gerenciamento de viagens, motoristas, veículos e clientes</em></p>
 
-## About Laravel
+  ![Laravel](https://img.shields.io/badge/Laravel-12.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+  ![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?style=for-the-badge&logo=php&logoColor=white)
+  ![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+  ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+</div>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📋 Índice
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- [🎯 Sobre o Projeto](#-sobre-o-projeto)
+- [✨ Funcionalidades](#-funcionalidades)
+- [🛠️ Tecnologias](#️-tecnologias)
+- [📋 Pré-requisitos](#-pré-requisitos)
+- [🚀 Instalação](#-instalação)
+- [⚙️ Configuração](#️-configuração)
+- [💾 Banco de Dados](#-banco-de-dados)
+- [🎨 Interface](#-interface)
+- [📱 Responsividade](#-responsividade)
+- [🔐 Autenticação](#-autenticação)
+- [📂 Estrutura do Projeto](#-estrutura-do-projeto)
+- [🧪 Testes](#-testes)
+- [📖 Documentação da API](#-documentação-da-api)
+- [🤝 Contribuição](#-contribuição)
+- [📄 Licença](#-licença)
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🎯 Sobre o Projeto
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+O **Gestão de Viagens e Turismo** é um sistema web moderno e intuitivo desenvolvido em Laravel para o gerenciamento completo de empresas de turismo e transporte. O sistema oferece controle total sobre viagens, motoristas, veículos, clientes e usuários, com interface responsiva e funcionalidades avançadas.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 🎪 Principais Características
 
-## Laravel Sponsors
+- **Interface Moderna**: Design clean com Bootstrap 5.3 e componentes personalizados
+- **Gestão Completa**: Controle de motoristas, veículos, viagens e clientes
+- **Sistema de Usuários**: Autenticação robusta com diferentes níveis de acesso
+- **Responsivo**: Totalmente adaptável para desktop, tablet e mobile
+- **Banco Flexível**: Schema otimizado com campos opcionais para máxima flexibilidade
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## ✨ Funcionalidades
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 👥 Gestão de Usuários
+- ✅ Sistema de login/logout seguro
+- ✅ Primeiro acesso com alteração de senha obrigatória
+- ✅ Perfis de usuário com avatar
+- ✅ Controle de sessões
 
-## Contributing
+### 🚗 Gestão de Motoristas
+- ✅ Cadastro completo de motoristas
+- ✅ Formulários dual (criação simples + edição detalhada)
+- ✅ Upload de foto de perfil
+- ✅ Campos flexíveis (todos opcionais)
+- ✅ Status de atividade
+- ✅ Histórico de viagens
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 🚐 Gestão de Veículos
+- ✅ Cadastro de veículos
+- ✅ Controle de manutenção
+- ✅ Status operacional
+- ✅ Associação com motoristas
 
-## Code of Conduct
+### 🗺️ Gestão de Viagens
+- ✅ Planejamento de rotas
+- ✅ Associação motorista-veículo
+- ✅ Controle de status da viagem
+- ✅ Relatórios detalhados
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 👤 Gestão de Clientes
+- ✅ Base de dados de clientes
+- ✅ Histórico de viagens
+- ✅ Informações de contato
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 🛠️ Tecnologias
 
-## License
+### Backend
+- **Laravel 12.x** - Framework PHP moderno
+- **PHP 8.2+** - Linguagem de programação
+- **PostgreSQL** - Banco de dados relacional
+- **Eloquent ORM** - Mapeamento objeto-relacional
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Frontend
+- **Bootstrap 5.3.1** - Framework CSS
+- **Sass** - Pré-processador CSS
+- **JavaScript Vanilla** - Interatividade
+- **Font Awesome** - Ícones
+- **Blade Templates** - Engine de templates
+
+### Ferramentas de Desenvolvimento
+- **Vite** - Build tool e bundler
+- **Laravel Pint** - Code styling
+- **Composer** - Gerenciador de dependências PHP
+- **NPM** - Gerenciador de dependências JavaScript
+
+---
+
+## 📋 Pré-requisitos
+
+Antes de começar, certifique-se de ter as seguintes ferramentas instaladas:
+
+- **PHP 8.2+**
+- **Composer**
+- **Node.js 18+**
+- **PostgreSQL 13+**
+- **Git**
+
+### Verificação dos Requisitos
+
+```bash
+# Verificar PHP
+php -v
+
+# Verificar Composer
+composer --version
+
+# Verificar Node.js
+node --version
+
+# Verificar PostgreSQL
+psql --version
+```
+
+---
+
+## 🚀 Instalação
+
+### 1. Clone o Repositório
+
+```bash
+git clone https://github.com/Xande025/Viagens_de_Turismo-.git
+cd Viagens_de_Turismo-
+```
+
+### 2. Instale as Dependências PHP
+
+```bash
+composer install
+```
+
+### 3. Instale as Dependências JavaScript
+
+```bash
+npm install
+```
+
+### 4. Configure o Ambiente
+
+```bash
+# Copie o arquivo de configuração
+cp .env.example .env
+
+# Gere a chave da aplicação
+php artisan key:generate
+```
+
+---
+
+## ⚙️ Configuração
+
+### 1. Configuração do Banco de Dados
+
+Edite o arquivo `.env` com suas configurações de banco:
+
+```env
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=viagens_turismo
+DB_USERNAME=seu_usuario
+DB_PASSWORD=sua_senha
+```
+
+### 2. Configurações Adicionais
+
+```env
+APP_NAME="COINPEL"
+APP_ENV=local
+APP_KEY=base64:sua_chave_aqui
+APP_DEBUG=true
+APP_TIMEZONE=America/Sao_Paulo
+APP_URL=http://localhost:8000
+
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+
+CACHE_STORE=file
+FILESYSTEM_DISK=local
+LOG_CHANNEL=stack
+LOG_STACK=single
+```
+
+---
+
+## 💾 Banco de Dados
+
+### 1. Criar o Banco
+
+```sql
+-- No PostgreSQL
+CREATE DATABASE viagens_turismo;
+```
+
+### 2. Executar Migrações
+
+```bash
+# Executar todas as migrações
+php artisan migrate
+
+# Executar migrações com seeders
+php artisan migrate --seed
+```
+
+### 3. Estrutura do Banco
+
+#### Tabela Users
+- `id` - Chave primária
+- `name` - Nome do usuário
+- `email` - Email único
+- `password` - Senha criptografada
+- `first_access` - Flag de primeiro acesso
+- `created_at/updated_at` - Timestamps
+
+#### Tabela Drivers
+- `id` - Chave primária
+- `name` - Nome (opcional)
+- `birth_date` - Data de nascimento (opcional)
+- `cpf` - CPF (opcional, único)
+- `rg` - RG (opcional)
+- `email` - Email (opcional, único)
+- `phone` - Telefone (opcional)
+- `address` - Endereço completo (opcional)
+- `status` - Status ativo/inativo
+- `created_at/updated_at` - Timestamps
+
+#### Tabela Vehicles
+- `id` - Chave primária
+- `model` - Modelo do veículo
+- `plate` - Placa única
+- `capacity` - Capacidade de passageiros
+- `status` - Status operacional
+- `created_at/updated_at` - Timestamps
+
+#### Tabela Trips
+- `id` - Chave primária
+- `driver_id` - FK para motorista
+- `vehicle_id` - FK para veículo
+- `destination` - Destino
+- `departure_date` - Data de partida
+- `return_date` - Data de retorno
+- `status` - Status da viagem
+- `created_at/updated_at` - Timestamps
+
+---
+
+## 🎨 Interface
+
+### Design System
+
+O projeto utiliza um design system consistente baseado em:
+
+- **Cores Primárias**: `#593E75` (roxo COINPEL)
+- **Tipografia**: Arial, sans-serif
+- **Componentes**: Bootstrap 5.3 customizado
+- **Ícones**: Font Awesome + SVGs customizados
+
+### Páginas Principais
+
+1. **Splash Screen** (`/tumb`) - Tela de boas-vindas
+2. **Login** (`/login`) - Autenticação de usuários
+3. **Dashboard** - Visão geral do sistema
+4. **Motoristas** (`/drivers`) - Gestão de motoristas
+5. **Veículos** (`/vehicles`) - Gestão de veículos
+6. **Viagens** (`/trips`) - Gestão de viagens
+7. **Usuários** (`/users`) - Gestão de usuários
+
+### Componentes Personalizados
+
+- **Sidebar Navigation** - Menu lateral responsivo
+- **Header Component** - Cabeçalho com perfil do usuário
+- **Card Components** - Cards para listagens
+- **Form Components** - Formulários padronizados
+- **Modal/Offcanvas** - Modais e painéis laterais
+
+---
+
+## 📱 Responsividade
+
+O sistema é 100% responsivo, adaptando-se a:
+
+- **Desktop** (1200px+)
+- **Tablet** (768px - 1199px)
+- **Mobile** (até 767px)
+
+### Breakpoints Utilizados
+
+```scss
+// Extra small devices
+@media (max-width: 575.98px) { ... }
+
+// Small devices
+@media (min-width: 576px) and (max-width: 767.98px) { ... }
+
+// Medium devices
+@media (min-width: 768px) and (max-width: 991.98px) { ... }
+
+// Large devices
+@media (min-width: 992px) and (max-width: 1199.98px) { ... }
+
+// Extra large devices
+@media (min-width: 1200px) { ... }
+```
+
+---
+
+## 🔐 Autenticação
+
+### Sistema de Login
+
+O sistema implementa autenticação robusta com:
+
+- **Hash de Senhas**: Bcrypt para segurança
+- **Sessões**: Gerenciamento seguro de sessões
+- **CSRF Protection**: Proteção contra ataques CSRF
+- **Primeiro Acesso**: Obriga alteração de senha no primeiro login
+
+### Middleware de Proteção
+
+```php
+// Rotas protegidas
+Route::middleware(['auth'])->group(function () {
+    Route::resource('drivers', DriverController::class);
+    Route::resource('vehicles', VehicleController::class);
+    Route::resource('trips', TripController::class);
+    Route::resource('users', UserController::class);
+});
+```
+
+---
+
+## 📂 Estrutura do Projeto
+
+```
+viagens-turismo/
+├── 📁 app/
+│   ├── 📁 Http/
+│   │   ├── 📁 Controllers/
+│   │   │   ├── Auth/LoginController.php
+│   │   │   ├── DriverController.php
+│   │   │   ├── VehicleController.php
+│   │   │   ├── TripController.php
+│   │   │   └── UserController.php
+│   │   └── 📁 Middleware/
+│   └── 📁 Models/
+│       ├── User.php
+│       ├── Driver.php
+│       ├── Vehicle.php
+│       └── Trip.php
+├── 📁 database/
+│   ├── 📁 migrations/
+│   └── 📁 seeders/
+├── 📁 public/
+│   ├── 📁 css/
+│   │   ├── drivers.css
+│   │   ├── vehicles.css
+│   │   ├── trips.css
+│   │   └── style.css
+│   └── 📁 images/
+│       ├── logo.png
+│       ├── logo-white.png
+│       └── Tumb.png
+├── 📁 resources/
+│   ├── 📁 views/
+│   │   ├── 📁 components/
+│   │   │   ├── header.blade.php
+│   │   │   ├── sidebar.blade.php
+│   │   │   └── layout.blade.php
+│   │   ├── 📁 partials/
+│   │   │   └── 📁 icons/
+│   │   ├── drivers.blade.php
+│   │   ├── vehicles.blade.php
+│   │   ├── trips.blade.php
+│   │   ├── users.blade.php
+│   │   ├── login.blade.php
+│   │   └── tumb.blade.php
+│   ├── 📁 js/
+│   └── 📁 sass/
+├── 📁 routes/
+│   ├── web.php
+│   └── api.php
+├── .env.example
+├── composer.json
+├── package.json
+├── vite.config.js
+└── README.md
+```
+
+---
+
+## 🧪 Testes
+
+### Executar Testes
+
+```bash
+# Executar todos os testes
+php artisan test
+
+# Executar testes específicos
+php artisan test --filter=DriverTest
+
+# Executar com coverage
+php artisan test --coverage
+```
+
+### Tipos de Teste
+
+- **Feature Tests**: Testes de funcionalidades completas
+- **Unit Tests**: Testes unitários de componentes
+- **Browser Tests**: Testes de interface (Laravel Dusk)
+
+---
+
+## 📖 Documentação da API
+
+### Endpoints Principais
+
+#### Motoristas
+```http
+GET    /drivers           # Listar motoristas
+POST   /drivers           # Criar motorista
+GET    /drivers/{id}      # Ver motorista
+PUT    /drivers/{id}      # Atualizar motorista
+DELETE /drivers/{id}      # Deletar motorista
+GET    /drivers/{id}/data # Dados para edição
+```
+
+#### Veículos
+```http
+GET    /vehicles          # Listar veículos
+POST   /vehicles          # Criar veículo
+GET    /vehicles/{id}     # Ver veículo
+PUT    /vehicles/{id}     # Atualizar veículo
+DELETE /vehicles/{id}     # Deletar veículo
+```
+
+#### Viagens
+```http
+GET    /trips             # Listar viagens
+POST   /trips             # Criar viagem
+GET    /trips/{id}        # Ver viagem
+PUT    /trips/{id}        # Atualizar viagem
+DELETE /trips/{id}        # Deletar viagem
+```
+
+---
+
+## 🚀 Deploy
+
+### Ambiente de Produção
+
+```bash
+# 1. Otimizar autoload
+composer install --optimize-autoloader --no-dev
+
+# 2. Compilar assets
+npm run build
+
+# 3. Otimizar configurações
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+
+# 4. Definir permissões
+sudo chown -R www-data:www-data storage bootstrap/cache
+sudo chmod -R 775 storage bootstrap/cache
+```
+
+### Configurações de Produção
+
+```env
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=https://seudominio.com
+
+# Cache
+CACHE_STORE=redis
+SESSION_DRIVER=redis
+
+# Banco de dados
+DB_CONNECTION=pgsql
+DB_HOST=seu-servidor-db
+DB_DATABASE=viagens_turismo_prod
+```
+
+---
+
+## 🤝 Contribuição
+
+Contribuições são sempre bem-vindas! Para contribuir:
+
+1. **Fork** o projeto
+2. **Clone** seu fork: `git clone https://github.com/seu-usuario/Viagens_de_Turismo-.git`
+3. **Crie** uma branch: `git checkout -b feature/nova-funcionalidade`
+4. **Faça** suas mudanças
+5. **Commit**: `git commit -m 'Adiciona nova funcionalidade'`
+6. **Push**: `git push origin feature/nova-funcionalidade`
+7. **Abra** um Pull Request
+
+### Padrões de Código
+
+- **PSR-12** para PHP
+- **ESLint** para JavaScript
+- **Comentários** em português
+- **Commits** descritivos
+
+---
+
+## 📞 Suporte
+
+Para suporte ou dúvidas:
+
+- **Issues**: [GitHub Issues](https://github.com/Xande025/Viagens_de_Turismo-/issues)
+- **Discussões**: [GitHub Discussions](https://github.com/Xande025/Viagens_de_Turismo-/discussions)
+- **Email**: suporte@coinpel.com.br
+
+---
+
+## 👥 Equipe
+
+- **Desenvolvedor Principal**: Xande025
+- **Design**: Equipe COINPEL
+- **QA**: Equipe de Testes
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+## 🔄 Changelog
+
+### v1.0.0 (2025-08-21)
+- ✅ Sistema de autenticação completo
+- ✅ CRUD de motoristas com formulários dual
+- ✅ CRUD de veículos
+- ✅ CRUD de viagens
+- ✅ Interface responsiva com Bootstrap 5.3
+- ✅ Schema de banco flexível
+- ✅ Sistema de componentes reutilizáveis
+
+---
+

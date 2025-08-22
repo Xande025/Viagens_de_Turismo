@@ -1,0 +1,148 @@
+:root {
+    --color-secondary: #593E75;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #383838;
+}
+/* Sidebar */
+.sidebar {
+    width: 188px;
+    height: 1024px;
+    flex-shrink: 0;
+    background-color: var(--color-secondary);
+    color: #F3F3F3;
+}
+.sidebar .nav-link {
+    color: #F3F3F3;
+    display: flex;
+    align-items: center;
+    padding: 10px 0.75rem;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+.sidebar .nav-link:hover {
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    text-decoration: none;
+}
+.sidebar .nav-link.active {
+    height: 44px;
+    flex-shrink: 0;
+    background: rgba(56, 92, 111, 0.28);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+/* Topbar */
+.topbar {
+    background-color: #ffffff;
+}
+.add-user-btn {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: #FFFFFF;
+}
+.add-user-btn:hover {
+    background-color: #452f5e;
+    border-color: #452f5e;
+    color: #FFFFFF;
+}
+.filter-btn {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+    background-color: #ffffff;
+}
+.filter-btn:hover {
+    background-color: #f0f0f0;
+}
+.search-box {
+    width: 250px;
+    position: relative;
+}
+.search-box input {
+    padding-left: 2rem;
+    border-radius: 20px;
+    background-color: #f6f6f6;
+    border: 1px solid #e0e0e0;
+    font-size: 0.9rem;
+}
+.search-box .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+.notification-icon svg {
+    width: 24px;
+    height: 24px;
+}
+/* User table */
+.user-table th {
+    color: #7D7D7D;
+    font-weight: 500;
+    font-size: 0.85rem;
+    border: none;
+}
+.user-table td {
+    vertical-align: middle;
+    font-size: 0.9rem;
+    border-top: none;
+}
+.user-table tbody tr {
+    border-bottom: 1px solid #e9ecef;
+}
+.user-table .dropdown-toggle::after {
+    display: none;
+}
+.user-table .dropdown-toggle svg {
+    width: 20px;
+    height: 20px;
+}
+.user-table .dots {
+    font-size: 1.5rem;
+    line-height: 1;
+    color: #7D7D7D;
+}
+.dropdown-menu {
+    font-size: 0.9rem;
+    border: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.dropdown-menu .dropdown-item svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Style for user menu in topbar: add left border to each item */
+.topbar .dropdown-menu .dropdown-item {
+    border-left: 3px solid var(--color-secondary);
+    padding-left: 0.75rem;
+}
+/* Offcanvas */
+.offcanvas {
+    width: 360px;
+    max-width: 100%;
+}
+.offcanvas-title {
+    font-weight: 600;
+}
+.offcanvas-header {
+    border-bottom: 1px solid #f1f1f1;
+}
+.offcanvas-body label {
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+.offcanvas .btn-primary {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+}
+.offcanvas .btn-outline-secondary {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+}
+.offcanvas .btn-outline-secondary:hover {
+    background-color: #f7f7f7;
+}

@@ -16,11 +16,10 @@ class UserController extends Controller
         $users = User::orderBy('created_at', 'desc')->paginate(10);
         
         $breadcrumbs = [
-            ['title' => 'Dashboard', 'url' => route('dashboard')],
             ['title' => 'Usuários', 'url' => '']
         ];
 
-        return view('users.index', compact('users', 'breadcrumbs'));
+        return view('users', compact('users', 'breadcrumbs'));
     }
 
     /**
@@ -29,7 +28,6 @@ class UserController extends Controller
     public function create()
     {
         $breadcrumbs = [
-            ['title' => 'Dashboard', 'url' => route('dashboard')],
             ['title' => 'Usuários', 'url' => route('users.index')],
             ['title' => 'Novo Usuário', 'url' => '']
         ];
@@ -66,7 +64,6 @@ class UserController extends Controller
     public function show(User $user)
     {
         $breadcrumbs = [
-            ['title' => 'Dashboard', 'url' => route('dashboard')],
             ['title' => 'Usuários', 'url' => route('users.index')],
             ['title' => $user->name, 'url' => '']
         ];
@@ -80,7 +77,6 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $breadcrumbs = [
-            ['title' => 'Dashboard', 'url' => route('dashboard')],
             ['title' => 'Usuários', 'url' => route('users.index')],
             ['title' => $user->name, 'url' => route('users.show', $user)],
             ['title' => 'Editar', 'url' => '']

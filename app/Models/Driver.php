@@ -11,7 +11,15 @@ class Driver extends Model
 
     protected $fillable = [
         'name',
+        'birth_date',
+        'registration',
         'cpf',
+        'rg',
+        'zip_code',
+        'address',
+        'number',
+        'city',
+        'state',
         'cnh',
         'cnh_category',
         'cnh_expiry',
@@ -21,6 +29,7 @@ class Driver extends Model
     ];
 
     protected $casts = [
+        'birth_date' => 'date',
         'cnh_expiry' => 'date'
     ];
 

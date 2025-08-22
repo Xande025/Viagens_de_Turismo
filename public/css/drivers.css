@@ -1,0 +1,317 @@
+:root {
+    --color-secondary: #593E75;
+    --card-shadow: rgba(0, 0, 0, 0.05) 0px 2px 6px 0px;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #383838;
+}
+/* Sidebar */
+.sidebar {
+    width: 188px;
+    height: 1024px;
+    flex-shrink: 0;
+    background-color: var(--color-secondary);
+    color: #F3F3F3;
+}
+.sidebar .nav-link {
+    color: #F3F3F3;
+    display: flex;
+    align-items: center;
+    padding: 10px 0.75rem;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+.sidebar .nav-link:hover {
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    text-decoration: none;
+}
+.sidebar .nav-link.active {
+    height: 44px;
+    flex-shrink: 0;
+    background: rgba(56, 92, 111, 0.28);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+/* Topbar */
+.topbar {
+    background-color: #ffffff;
+}
+.add-driver-btn {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: #FFFFFF;
+}
+.add-driver-btn:hover {
+    background-color: #452f5e;
+    border-color: #452f5e;
+    color: #FFFFFF;
+}
+.filter-btn {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+    background-color: #ffffff;
+}
+.filter-btn:hover {
+    background-color: #f0f0f0;
+}
+.search-box {
+    width: 250px;
+    position: relative;
+}
+.search-box input {
+    padding-left: 2rem;
+    border-radius: 20px;
+    background-color: #f6f6f6;
+    border: 1px solid #e0e0e0;
+    font-size: 0.9rem;
+}
+.search-box .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+.notification-icon svg {
+    width: 24px;
+    height: 24px;
+}
+/* Driver cards */
+/* Motorista card layout */
+.driver-card {
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 0 13px rgba(0,0,0,0.10);
+    width: 100%;
+    max-width: 589px;
+    height: 118px;
+    border: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.driver-card .dropdown-toggle::after {
+    display: none;
+}
+/* Position the ellipsis in the upper right corner of the card */
+.driver-card .dropdown {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+}
+.driver-card .dropdown-toggle svg {
+    width: 20px;
+    height: 20px;
+}
+.dropdown-menu {
+    font-size: 0.9rem;
+    border: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.dropdown-menu .dropdown-item svg {
+    width: 16px;
+    height: 16px;
+}
+/* User dropdown in topbar */
+.topbar .dropdown-menu .dropdown-item {
+    border-left: 3px solid var(--color-secondary);
+    padding-left: 0.75rem;
+}
+/* Offcanvas */
+.offcanvas {
+    width: 400px;
+    max-width: 100%;
+}
+.offcanvas-title {
+    font-weight: 600;
+}
+.offcanvas-header {
+    border-bottom: 1px solid #f1f1f1;
+}
+.offcanvas-body label {
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+.offcanvas .section-heading {
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+.offcanvas .btn-primary {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+}
+.offcanvas .btn-primary:hover {
+    background-color: #452f5e;
+    border-color: #452f5e;
+}
+.offcanvas .btn-outline-secondary {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+}
+.offcanvas .btn-outline-secondary:hover {
+    background-color: #f7f7f7;
+}
+
+/* Estilos específicos para o formulário de edição */
+.section-heading {
+    color: #6c757d;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.section-heading i {
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+}
+
+/* Container da foto de perfil */
+.profile-photo-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Campos readonly no formulário de edição */
+#driverEditOffcanvas input[readonly] {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    cursor: default;
+}
+
+#driverEditOffcanvas .btn-link {
+    text-decoration: none;
+    padding: 0;
+    font-weight: 500;
+}
+
+#driverEditOffcanvas .btn-link:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para o header do offcanvas de edição */
+#driverEditOffcanvas .offcanvas-header {
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 1rem;
+}
+
+#driverEditOffcanvas .offcanvas-header h5 {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Estilos atualizados para o novo layout */
+.profile-section {
+    text-align: center;
+}
+
+.profile-label {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.profile-photo-wrapper {
+    margin-bottom: 12px;
+}
+
+.profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e9ecef;
+}
+
+.btn-update-photo {
+    background: none;
+    border: none;
+    color: #007bff;
+    font-size: 0.9rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-update-photo:hover {
+    text-decoration: underline;
+}
+
+.form-section {
+    margin-bottom: 1.5rem;
+}
+
+.section-title {
+    font-size: 0.9rem;
+    color: #6c757d;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.section-icon {
+    font-size: 0.75rem;
+    color: #adb5bd;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-control {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    width: 100%;
+}
+
+.form-control:focus {
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 0.2rem rgba(89, 62, 117, 0.25);
+}
+
+.form-actions {
+    margin-top: 2rem;
+}
+
+.form-actions .btn-primary {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    font-weight: 500;
+}
+
+.form-actions .btn-primary:hover {
+    background-color: #452f5e;
+    border-color: #452f5e;
+}
+
+.form-actions .btn-outline-secondary {
+    border-color: #dee2e6;
+    color: #6c757d;
+}
+
+.form-actions .btn-outline-secondary:hover {
+    background-color: #f8f9fa;
+    border-color: #adb5bd;
+}

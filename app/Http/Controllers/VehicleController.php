@@ -15,11 +15,10 @@ class VehicleController extends Controller
         $vehicles = Vehicle::orderBy('created_at', 'desc')->paginate(10);
         
         $breadcrumbs = [
-            ['title' => 'Dashboard', 'url' => route('dashboard')],
             ['title' => 'Veículos', 'url' => '']
         ];
 
-        return view('vehicles.index', compact('vehicles', 'breadcrumbs'));
+        return view('vehicles', compact('vehicles', 'breadcrumbs'));
     }
 
     /**
@@ -28,7 +27,6 @@ class VehicleController extends Controller
     public function create()
     {
         $breadcrumbs = [
-            ['title' => 'Dashboard', 'url' => route('dashboard')],
             ['title' => 'Veículos', 'url' => route('vehicles.index')],
             ['title' => 'Novo Veículo', 'url' => '']
         ];
@@ -42,14 +40,29 @@ class VehicleController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+            'identification_name' => 'required|string|max:255',
             'plate' => 'required|string|max:10|unique:vehicles',
             'model' => 'required|string|max:255',
-            'brand' => 'required|string|max:255',
+            'brand' => 'required|string|max:255', // Usado como chassi
             'year' => 'required|integer|min:1900|max:' . (date('Y') + 1),
             'capacity' => 'required|integer|min:1|max:100',
-            'status' => 'required|in:available,in_use,maintenance',
-            'description' => 'nullable|string|max:1000'
+            'bus_type' => 'required|string|max:255',
+            'has_internet' => 'boolean',
+            'has_wc' => 'boolean',
+            'has_fridge' => 'boolean',
+            'has_heater' => 'boolean',
+            'has_video' => 'boolean'
         ]);
+
+        // Definir status padrão como disponível
+        $validated['status'] = 'available';
+
+        // Converter strings "0"/"1" para boolean
+        $validated['has_internet'] = (bool) ($request->has_internet ?? 0);
+        $validated['has_wc'] = (bool) ($request->has_wc ?? 0);
+        $validated['has_fridge'] = (bool) ($request->has_fridge ?? 0);
+        $validated['has_heater'] = (bool) ($request->has_heater ?? 0);
+        $validated['has_video'] = (bool) ($request->has_video ?? 0);
 
         Vehicle::create($validated);
 
@@ -63,7 +76,6 @@ class VehicleController extends Controller
     public function show(Vehicle $vehicle)
     {
         $breadcrumbs = [
-            ['title' => 'Dashboard', 'url' => route('dashboard')],
             ['title' => 'Veículos', 'url' => route('vehicles.index')],
             ['title' => $vehicle->plate, 'url' => '']
         ];
@@ -77,7 +89,6 @@ class VehicleController extends Controller
     public function edit(Vehicle $vehicle)
     {
         $breadcrumbs = [
-            ['title' => 'Dashboard', 'url' => route('dashboard')],
             ['title' => 'Veículos', 'url' => route('vehicles.index')],
             ['title' => $vehicle->plate, 'url' => route('vehicles.show', $vehicle)],
             ['title' => 'Editar', 'url' => '']
@@ -103,7 +114,7 @@ class VehicleController extends Controller
 
         $vehicle->update($validated);
 
-        return redirect()->route('vehicles.show', $vehicle)
+        return redirect()->route('vehicles.index')
             ->with('success', 'Veículo atualizado com sucesso!');
     }
 

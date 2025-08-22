@@ -1,0 +1,144 @@
+:root {
+    --color-secondary: #593E75;
+    --status-red: #EB5757;
+    --status-yellow: #F2C94C;
+    --status-green: #6FCF97;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #383838;
+}
+/* Sidebar */
+.sidebar {
+    width: 188px;
+    height: 1024px;
+    flex-shrink: 0;
+    background-color: var(--color-secondary);
+    color: #F3F3F3;
+}
+.sidebar .nav-link {
+    color: #F3F3F3;
+    display: flex;
+    align-items: center;
+    padding: 10px 0.75rem;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+.sidebar .nav-link:hover {
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    text-decoration: none;
+}
+.sidebar .nav-link.active {
+    height: 44px;
+    flex-shrink: 0;
+    background: rgba(56, 92, 111, 0.28);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+/* Topbar */
+.topbar {
+    background-color: #ffffff;
+}
+.add-trip-btn {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: #FFFFFF;
+}
+.add-trip-btn:hover {
+    background-color: #452f5e;
+    border-color: #452f5e;
+    color: #FFFFFF;
+}
+.filter-btn {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+    background-color: #ffffff;
+}
+.filter-btn:hover {
+    background-color: #f0f0f0;
+}
+.search-box {
+    width: 250px;
+    position: relative;
+}
+.search-box input {
+    padding-left: 2rem;
+    border-radius: 20px;
+    background-color: #f6f6f6;
+    border: 1px solid #e0e0e0;
+    font-size: 0.9rem;
+}
+.search-box .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+.notification-icon svg {
+    width: 24px;
+    height: 24px;
+}
+/* Trips table */
+.trips-table th {
+    color: #7D7D7D;
+    font-weight: 500;
+    font-size: 0.85rem;
+    border: none;
+}
+.trips-table td {
+    vertical-align: middle;
+    font-size: 0.9rem;
+    border-top: none;
+}
+.trips-table tbody tr {
+    border-bottom: 1px solid #e9ecef;
+}
+.trips-table .dropdown-toggle::after {
+    display: none;
+}
+.trips-table .dropdown-toggle svg {
+    width: 20px;
+    height: 20px;
+}
+.dropdown-menu {
+    font-size: 0.9rem;
+    border: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.dropdown-menu .dropdown-item svg {
+    width: 16px;
+    height: 16px;
+}
+/* Status badges */
+.status-badge {
+    display: inline-block;
+    width: 110px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+.status-ongoing {
+    background-color: var(--status-yellow);
+    color: #383838;
+}
+.status-completed {
+    background-color: var(--status-green);
+    color: #ffffff;
+}
+.status-cancelled {
+    background-color: var(--status-red);
+    color: #ffffff;
+}
+/* User dropdown styling in topbar */
+.topbar .dropdown-menu .dropdown-item {
+    border-left: 3px solid var(--color-secondary);
+    padding-left: 0.75rem;
+}

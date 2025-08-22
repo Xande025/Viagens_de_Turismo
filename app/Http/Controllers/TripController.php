@@ -18,12 +18,19 @@ class TripController extends Controller
             ->orderBy('departure_time', 'desc')
             ->paginate(10);
         
+        // Buscar veículos disponíveis para o formulário
+        $vehicles = Vehicle::where('status', 'available')->get();
+        
+        // Buscar motoristas ativos para o formulário
+        $drivers = Driver::where('status', 'active')
+            ->whereDate('cnh_expiry', '>', now())
+            ->get();
+        
         $breadcrumbs = [
-            ['title' => 'Dashboard', 'url' => route('dashboard')],
             ['title' => 'Viagens', 'url' => '']
         ];
 
-        return view('trips.index', compact('trips', 'breadcrumbs'));
+        return view('trips', compact('trips', 'vehicles', 'drivers', 'breadcrumbs'));
     }
 
     /**
@@ -37,12 +44,11 @@ class TripController extends Controller
             ->get();
         
         $breadcrumbs = [
-            ['title' => 'Dashboard', 'url' => route('dashboard')],
             ['title' => 'Viagens', 'url' => route('trips.index')],
             ['title' => 'Nova Viagem', 'url' => '']
         ];
 
-        return view('trips.create', compact('vehicles', 'drivers', 'breadcrumbs'));
+        return view('trips', compact('vehicles', 'drivers', 'breadcrumbs'));
     }
 
     /**
@@ -108,12 +114,11 @@ class TripController extends Controller
         $trip->load(['vehicle', 'driver']);
         
         $breadcrumbs = [
-            ['title' => 'Dashboard', 'url' => route('dashboard')],
             ['title' => 'Viagens', 'url' => route('trips.index')],
             ['title' => $trip->origin . ' → ' . $trip->destination, 'url' => '']
         ];
 
-        return view('trips.show', compact('trip', 'breadcrumbs'));
+        return view('trips', compact('trip', 'breadcrumbs'));
     }
 
     /**
@@ -130,13 +135,12 @@ class TripController extends Controller
             ->get();
         
         $breadcrumbs = [
-            ['title' => 'Dashboard', 'url' => route('dashboard')],
             ['title' => 'Viagens', 'url' => route('trips.index')],
             ['title' => $trip->origin . ' → ' . $trip->destination, 'url' => route('trips.show', $trip)],
             ['title' => 'Editar', 'url' => '']
         ];
 
-        return view('trips.edit', compact('trip', 'vehicles', 'drivers', 'breadcrumbs'));
+        return view('trip_edit', compact('trip', 'vehicles', 'drivers', 'breadcrumbs'));
     }
 
     /**
@@ -160,7 +164,7 @@ class TripController extends Controller
 
         $trip->update($validated);
 
-        return redirect()->route('trips.show', $trip)
+        return redirect()->route('trips.index')
             ->with('success', 'Viagem atualizada com sucesso!');
     }
 

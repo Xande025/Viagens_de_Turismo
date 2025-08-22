@@ -1,0 +1,28 @@
+:root {
+  --primary: #007bff;
+  --secondary: #593E75;
+
+  --btn-cancelado: #EB5757;
+  --btn-andamento: #F2C94C;
+  --btn-concluido: #6FCF97;
+
+  --success: #6FCF97;
+  --error: #EB5757;
+  --warning: #F2C94C;
+  --info: #17a2b8;
+
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-light: #f5f5f5;
+
+  --text-primary: #383838;
+  --text-secondary: #9E9E9E;
+  --text-muted: #6c757d;
+  --text-light: #ffffff;
+
+  --border-light: #E5E5E5;
+  --border-primary: #dee2e6;
+  --border-secondary: #adb5bd;
+
+  --bar-line: #E5E5E5;
+}

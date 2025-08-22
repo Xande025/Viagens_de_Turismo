@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\TripController;
@@ -11,7 +10,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 Route::get('/', function () {
-    return redirect('/login');
+    return view('tumb');
+});
+
+// Página tumb (splash/intro)
+Route::get('/tumb', function () {
+    return view('tumb');
 });
 
 // Rota de dashboard (pós-autenticação)
@@ -19,14 +23,20 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
+// Rota específica para primeiro acesso (mudança de senha no modal) - sem middleware auth
+Route::post('/change-password-first-access', [LoginController::class, 'changePasswordFirstAccess'])->name('change-password-first-access');
+
 // Rotas protegidas por autenticação
-Route::middleware(['auth', 'check.first.access'])->group(function () {
-    Route::get('/home', [DashboardController::class, 'index'])->name('home');
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::middleware(['auth'])->group(function () {
+    // Redirecionar /home para /users
+    Route::get('/home', function () {
+        return redirect('/users');
+    })->name('home');
     
     // Recursos principais (RF01, RF02, RF03, RF04)
     Route::resource('vehicles', VehicleController::class);
     Route::resource('drivers', DriverController::class);
+    Route::get('/drivers/{driver}/data', [DriverController::class, 'getDriverData'])->name('drivers.data');
     Route::resource('trips', TripController::class);
     Route::resource('users', UserController::class);
     
