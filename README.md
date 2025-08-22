@@ -27,9 +27,6 @@
 - [📂 Estrutura do Projeto](#-estrutura-do-projeto)
 - [🧪 Testes](#-testes)
 - [📖 Documentação da API](#-documentação-da-api)
-- [🤝 Contribuição](#-contribuição)
-- [📄 Licença](#-licença)
-
 ---
 
 ## 🎯 Sobre o Projeto
@@ -41,7 +38,6 @@ O **Gestão de Viagens e Turismo** é um sistema web moderno e intuitivo desenvo
 - **Interface Moderna**: Design clean com Bootstrap 5.3 e componentes personalizados
 - **Gestão Completa**: Controle de motoristas, veículos, viagens e clientes
 - **Sistema de Usuários**: Autenticação robusta com diferentes níveis de acesso
-- **Responsivo**: Totalmente adaptável para desktop, tablet e mobile
 - **Banco Flexível**: Schema otimizado com campos opcionais para máxima flexibilidade
 
 ---
